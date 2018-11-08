@@ -1,0 +1,38 @@
+<view class="nav-bar">
+    <view class="nav-bar-inner">
+      <view
+      wx:for="{{ navList }}"
+      wx:key="{{ index }}"
+      class="nav-bar-item {{ currentTabIndex == item.id ? 'current' : '' }}"
+      style="color: {{ currentTabIndex == item.id ? backgroundColor : '' }}"
+      data-current="{{ item.id }}"
+      bindtap="tabClick"
+      >
+      {{ item.name }}
+      </view>
+    </view>
+    <view class="tab-bar-btm-line-wrap" style="top: {{ tabBarHeight - 3 }}px">
+      <view animation="{{animationData}}" class="tab-bar-btm-line" style="height: 3px; margin-left: {{ marginLeft }}px"></view>
+    </view>
+  </view>
+
+  <!-- swiper的高度设置为页面的可用高度减去tab栏的高度 -->
+    <swiper
+    bindchange="swiperChange"
+    current="{{ currentTabIndex }}"
+    style="height: {{ windowHeight }}px; margin-top: {{ contenListMarginTop }}px"
+    duration="500"
+    >
+      <block wx:for="{{ navList }}" wx:for-index="pageIndex" wx:key="{{ pageIndex }}">
+        <swiper-item>
+          <scroll-view
+            scroll-y
+            bindscrolltolower="scrollToBottom"
+            style="height: {{ windowHeight }}px; width: 100%;"
+          >
+          <!-- 通过插槽自定义每个swiper-item的内容，插槽名动态生成 -->
+            <slot name="{{ 'pageViewSlot' + pageIndex }}"></slot>
+          </scroll-view>
+        </swiper-item>
+      </block>
+    </swiper>

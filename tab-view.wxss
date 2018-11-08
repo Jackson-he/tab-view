@@ -1,0 +1,40 @@
+.nav-bar {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-bar .nav-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 104rpx;
+  background-color: white;
+}
+
+.nav-bar .nav-bar-item {
+  word-break: keep-all;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #666666;
+  padding: 20rpx 0;
+}
+
+.content-list {
+  background-color: #F6F6F6;
+  padding-top: 20rpx;
+  height: 100%;
+}
+
+.tab-bar-btm-line-wrap {
+  position: fixed;
+}
+
+.tab-bar-btm-line-wrap .tab-bar-btm-line {
+  margin-left: 104rpx;
+  width: 100rpx;
+  background: linear-gradient(90deg, #ff4936 0%, #ff6e3c 100%);
+  box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(255, 89, 0, 0.25);
+  border-radius: 24rpx;
+}
